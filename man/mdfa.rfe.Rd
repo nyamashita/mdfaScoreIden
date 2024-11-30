@@ -51,6 +51,13 @@ lambda : tuning parameter\cr
 }
 \examples{
 library(lavaan)
+data("HolzingerSwineford1939")
+X <- scale(as.matrix(HolzingerSwineford1939[,7:15]))
+Y <- matrix(0, nrow(X), 4)
+Y[,1] <- ifelse(HolzingerSwineford1939$sex == 1, 1, 0) #sex
+Y[,2] <- ifelse(HolzingerSwineford1939$sex == 2, 1, 0)
+Y[,3] <- ifelse(HolzingerSwineford1939$school == "Pasteur", 1, 0)
+Y[,4] <- ifelse(HolzingerSwineford1939$school == "Grant-White", 1, 0)
 aics <- c()
 lambdas <- 10^(seq(-3, 1, by = 0.5))
 res.list <- list()
