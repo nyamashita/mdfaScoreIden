@@ -3,7 +3,7 @@ Title: Factor Score Specification in Matrix Decomposition Factor Analysis (MDFA)
 Version: 0.0.0.9000
 Authors@R: 
     person("Naoto", "Yamashita", , "nyam@kansai-u.ac.jp", role = c("aut", "cre"))
-Description: The package specifies common/unique factor scores in matrix decomposition factor analysis (MDFA). The specification is attained by minimizing MDFA's loss function with L2 penalization. The package provides two types of specificationl; regression and clustering version. Regression version specifies the score by regressing some external criteria on the scores. Clustering version specifies the score to cluster the observations.
+Description: The package specifies common/unique factor scores in matrix decomposition factor analysis (MDFA). The specification is attained by minimizing MDFA's loss function with L2 penalization. The package provides two types of specification; regression and clustering version. Regression version specifies the score by regressing some external criteria on the scores. Clustering version specifies the score to cluster the observations.
 License: use_gpl3_license()
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
