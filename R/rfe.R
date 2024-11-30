@@ -1,6 +1,7 @@
 #' Common factor score identification in matrix decomposition factor analysis (MDFA)
 #'   ; Regression version
 #'
+#' Specifies common/unique factor scores in MDFA by solving the following minimization problem
 #' min. ||X - (FA' + UD)||^2 + lambda||Y - FW||^2 over F, A, U, D, and W.\cr
 #' \cr
 #'  n: number of observations\cr
@@ -59,7 +60,7 @@
 #'   idx <- idx + 1
 #' }
 #' res.list[[which.min(aics)]]
-
+#' @author Naoto Yamashita, \email{nyam@kansai-u.ac.jp}
 #' @export
 mdfa.rfe <- function(X, #data matrix
                      Y, #matrix of external criterion

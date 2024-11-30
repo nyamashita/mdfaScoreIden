@@ -1,6 +1,7 @@
 #' Common factor score identification in matrix decomposition factor analysis (MDFA)
 #'   ; Clustering version
 #'
+#' Specifies common/unique factor scores in MDFA by solving the following minimization problem
 #' min. ||X - (FA' + UD)||^2 + lambda||MC - F||^2 over F, A, U, D, M, and C.\cr
 #' \cr
 #'  n: number of observations\cr
@@ -58,6 +59,7 @@
 #' }
 #' plot(res.list[[which.min(aics)]]$Fr)
 #' res.list[[which.min(aics)]]$M
+#' @author Naoto Yamashita, \email{nyam@kansai-u.ac.jp}
 #' @export
 mdfa.cfe <- function(X, #data matrix
                      r, #number of factors

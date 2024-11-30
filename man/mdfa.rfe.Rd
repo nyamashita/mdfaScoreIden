@@ -35,6 +35,7 @@ history: A numeric vector. Iteration history.\cr
 AIC: A numeric value. AIC value.\cr
 }
 \description{
+Specifies common/unique factor scores in MDFA by solving the following minimization problem
 min. ||X - (FA' + UD)||^2 + lambda||Y - FW||^2 over F, A, U, D, and W.\cr
 \cr
 n: number of observations\cr
@@ -75,4 +76,7 @@ for(lambda in lambdas){
   idx <- idx + 1
 }
 res.list[[which.min(aics)]]
+}
+\author{
+Naoto Yamashita, \email{nyam@kansai-u.ac.jp}
 }
