@@ -10,12 +10,10 @@ The package provides two types of specification;
 ---
 
 ## Installation
-
-### CRANからのインストール（CRAN登録済みの場合）
 ```R
-# devtoolsパッケージが必要です
 install.packages("devtools")
 devtools::install_github("yourusername/myPackage")
+```
 
 ## Example
 See the Help of the functions.
