@@ -12,7 +12,7 @@ The package provides two types of specification;
 ## Installation
 ```R
 install.packages("devtools")
-devtools::install_github("yourusername/myPackage")
+devtools::install_github("nyamashita/mdfaScoreIden")
 ```
 
 ## Example
