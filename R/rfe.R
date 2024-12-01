@@ -35,6 +35,8 @@
 #' history: A numeric vector. Iteration history.\cr
 #' AIC: A numeric value. AIC value.\cr
 #' @examples
+#' setseed(123456)
+#' options(warn = -1)
 #' library(lavaan)
 #' data("HolzingerSwineford1939")
 #' X <- scale(as.matrix(HolzingerSwineford1939[,7:15]))

@@ -38,6 +38,8 @@
 #' history: A numeric vector. Iteration history.\cr
 #' AIC: A numeric value. AIC value.\cr
 #' @examples
+#' setseed(123456)
+#' options(warn = -1)
 #' X <- read.csv("jobImage.csv")
 #' X <- scale(as.matrix(X[,-1])) #Useful, Good, Firm, Quick, Noisy, Busy
 #' X <- X[,c(2,3,10,7,8,12)]
