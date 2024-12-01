@@ -54,7 +54,7 @@ C: k * p cluster centroid matrix\cr
 lambda : tuning parameter\cr
 }
 \examples{
-setseed(123456)
+set.seed(123456)
 options(warn = -1)
 X <- read.csv("jobImage.csv")
 X <- scale(as.matrix(X[,-1])) #Useful, Good, Firm, Quick, Noisy, Busy

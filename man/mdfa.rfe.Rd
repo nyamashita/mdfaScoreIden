@@ -51,7 +51,7 @@ W: r * q regression coefficient matrix\cr
 lambda : tuning parameter\cr
 }
 \examples{
-setseed(123456)
+set.seed(123456)
 options(warn = -1)
 library(lavaan)
 data("HolzingerSwineford1939")
