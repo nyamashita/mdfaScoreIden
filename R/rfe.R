@@ -61,7 +61,7 @@
 #'   aics[idx] <- res.list[[idx]]$AIC
 #'   idx <- idx + 1
 #' }
-#' res.list[[which.min(aics)]]
+#' head(res.list[[which.min(aics)]]$Fr)
 #' @author Naoto Yamashita, \email{nyam@kansai-u.ac.jp}
 #' @export
 mdfa.rfe <- function(X, #data matrix
