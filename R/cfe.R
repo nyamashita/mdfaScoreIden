@@ -38,29 +38,25 @@
 #' history: A numeric vector. Iteration history.\cr
 #' AIC: A numeric value. AIC value.\cr
 #' @examples
-#' set.seed(123456)
+#' set.seed(25258800)
 #' options(warn = -1)
 #' data(jobImage)
 #' X <- scale(as.matrix(jobImage[,-1]))
 #' X <- X[,c(2,3,10,7,8,12)]#Useful, Good, Firm, Quick, Noisy, Busy
-#' aics <- c()
-#' lambdas <- 10^(seq(-3, 1, by = 0.5))
+#' lambda <- 0.01
 #' res.list <- list()
-#' idx <- 1
-#' n.starts <- 3
-#' for(lambda in lambdas){
-#'   res.list.tmp <- list()
-#'   f.list.tmp <- c()
-#'   for(i in 1:n.starts){
-#'     res.list.tmp[[i]] <- mdfa.cfe(X, 2, 3, lambda)
-#'     f.list.tmp[i] <- min(res.list.tmp[[i]]$history)
-#'   }
-#'   res.list[[idx]] <- res.list.tmp[[which.min(f.list.tmp)]]
-#'   aics[idx] <- res.list[[idx]]$AIC
-#'   idx <- idx + 1
+#' f.list <- c()
+#' n.starts <- 250
+#' for(i in 1:n.starts){
+#'   res.list[[i]] <- mdfa.cfe(X, 2, 3, lambda)
+#'   f.list[i] <- min(res.list[[i]]$history)
 #' }
-#' plot(res.list[[which.min(aics)]]$Fr)
-#' res.list[[which.min(aics)]]$M
+#' res.cfe <- res.list[[which.min(f.list)]]
+#' plot(res.cfe$Fr)
+#' res.cfe$M #membership
+#' data.frame(F1 = res.cfe$Ar[,1],
+#'            F2 = res.cfe$Ar[,2],
+#'            uniqueness = diag(res.cfe$D^2))
 #' @author Naoto Yamashita, \email{nyam@kansai-u.ac.jp}
 #' @export
 mdfa.cfe <- function(X, #data matrix
@@ -151,7 +147,7 @@ mdfa.cfe <- function(X, #data matrix
     C = C,                      #cluster-centroid
     Cr = Cr,                    #cluster-centroid; rotated
     M = M,                      #membership
-    D = B[(r+1):(p+r)],         #uniqueness
+    D = B[,(r+1):(p+r)],         #uniqueness
     int.fac.cor = int.fac.cor,  #inter-factor correlation
     fitted.cov = fitted.cov,    #covariance matrix fitted to X
     history = history,          #iteration history

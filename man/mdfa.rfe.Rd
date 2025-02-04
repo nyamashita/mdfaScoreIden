@@ -62,22 +62,19 @@ Y[,2] <- ifelse(HolzingerSwineford1939$sex == 2, 1, 0)
 Y[,3] <- ifelse(HolzingerSwineford1939$school == "Pasteur", 1, 0)
 Y[,4] <- ifelse(HolzingerSwineford1939$school == "Grant-White", 1, 0)
 aics <- c()
-lambdas <- 10^(seq(-3, 1, by = 0.5))
-res.list <- list()
-idx <- 1
+lambda <- 0.01
 n.starts <- 10
-for(lambda in lambdas){
-  res.list.tmp <- list()
-  f.list.tmp <- c()
-  for(i in 1:n.starts){
-    res.list.tmp[[i]] <- mdfa.rfe(X, Y, 3, lambda)
-    f.list.tmp[i] <- min(res.list.tmp[[i]]$history)
-  }
-  res.list[[idx]] <- res.list.tmp[[which.min(f.list.tmp)]]
-  aics[idx] <- res.list[[idx]]$AIC
-  idx <- idx + 1
+res.list <- list()
+f.list <- c()
+for(i in 1:n.starts){
+  res.list[[i]] <- mdfa.rfe(X, Y, 3, lambda)
+  f.list[i] <- min(res.list[[i]]$history)
 }
-head(res.list[[which.min(aics)]]$Fr)
+res.rfe <- res.list[[which.min(f.list)]]
+data.frame(F1 = res.rfe$Ar[,1],
+           F2 = res.rfe$Ar[,2],
+           F3 = res.rfe$Ar[,3],
+           uniqueness = diag(res.rfe$D)^2)
 }
 \author{
 Naoto Yamashita, \email{nyam@kansai-u.ac.jp}
