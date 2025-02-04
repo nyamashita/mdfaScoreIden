@@ -69,7 +69,9 @@ for(i in 1:n.starts){
 }
 res.cfe <- res.list[[which.min(f.list)]]
 plot(res.cfe$Fr)
-res.cfe$M #membership
+M <- res.cfe$M #membership
+rownames(M) <- jobImage[,1]
+M
 data.frame(F1 = res.cfe$Ar[,1],
            F2 = res.cfe$Ar[,2],
            uniqueness = diag(res.cfe$D^2))
